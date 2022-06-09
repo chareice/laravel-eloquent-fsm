@@ -10,7 +10,7 @@ class EloquentFSM implements StateMachineInterface
 
     public function __construct(protected StateMachineModelInterface $model)
     {
-        $this->events = $this->model->events();
+        $this->events = new EventsCollection($this->model->events());
     }
 
     public function currentState()

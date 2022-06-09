@@ -4,7 +4,10 @@ namespace Chareice\LaravelEloquentFSM;
 
 interface StateMachineModelInterface
 {
-    public function events(): EventsCollection;
+    /**
+     * @return array<Event>
+     */
+    public function events(): array;
 
     public static function defaultState(): mixed;
 

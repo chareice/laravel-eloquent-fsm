@@ -20,15 +20,24 @@ class TestModel extends Model implements StateMachineModelInterface
         'state' => TestState::class,
     ];
 
-    public function events(): EventsCollection
+    public function events(): array
     {
-        return new EventsCollection([
-            Event::builder()->setName('pay')->setFrom(TestState::PENDING)->setTo(TestState::PAID)->setAfter(function () {
-                $this->counter = 1;
-            })->build(),
+        return [
+            Event::builder()
+                ->setName('pay')
+                ->setFrom(TestState::PENDING)
+                ->setTo(TestState::PAID)
+                ->setAfter(function () {
+                    $this->counter = 1;
+                })
+                ->build(),
 
-            Event::builder()->setName('ship')->setFrom(TestState::PAID)->setTo(TestState::SHIPPED)->build(),
-        ]);
+            Event::builder()
+                ->setName('ship')
+                ->setFrom(TestState::PAID)
+                ->setTo(TestState::SHIPPED)
+                ->build(),
+        ];
     }
 
     public static function defaultState(): TestState
