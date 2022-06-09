@@ -14,5 +14,5 @@ interface StateMachineModelInterface
 
     public function currentState(): mixed;
 
-    public function updateState($newState);
+    public function updateState($newState): void;
 }

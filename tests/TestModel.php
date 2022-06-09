@@ -5,6 +5,7 @@ namespace Chareice\LaravelEloquentFSM\Tests;
 use Chareice\LaravelEloquentFSM\EloquentFSM;
 use Chareice\LaravelEloquentFSM\Event;
 use Chareice\LaravelEloquentFSM\EventsCollection;
+use Chareice\LaravelEloquentFSM\HasStateMachine;
 use Chareice\LaravelEloquentFSM\StateMachineInterface;
 use Chareice\LaravelEloquentFSM\StateMachineModelInterface;
 use Illuminate\Database\Eloquent\Model;
@@ -12,11 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 class TestModel extends Model implements StateMachineModelInterface
 {
 
+    use HasStateMachine;
+
     public int $counter = 0;
 
     protected $table = 'tests';
-
-    protected ?StateMachineInterface $stateMachine = null;
 
     protected $casts = [
         'state' => TestState::class,
@@ -38,28 +39,4 @@ class TestModel extends Model implements StateMachineModelInterface
         return TestState::PENDING;
     }
 
-    public function createStateMachine(): StateMachineInterface
-    {
-        return new EloquentFSM($this);
-    }
-
-    public function getStateMachine(): StateMachineInterface
-    {
-        if (is_null($this->stateMachine)) {
-            $this->stateMachine = $this->createStateMachine();
-        }
-
-        return $this->stateMachine;
-    }
-
-    public function currentState(): TestState
-    {
-        return $this->state;
-    }
-
-    public function updateState($newState)
-    {
-        $this->setAttribute('state', $newState);
-        $this->save();
-    }
 }
