@@ -47,7 +47,7 @@ trait HasStateMachine
             'from' => $from,
             'to' => $event->getTo(),
             'event' => $event->getName(),
-            'meta' => $context
+            'meta' => $context,
         ]));
     }
 }

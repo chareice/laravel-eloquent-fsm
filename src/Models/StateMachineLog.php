@@ -9,7 +9,7 @@ class StateMachineLog extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'meta' => 'json'
+        'meta' => 'json',
     ];
 
     public function fsmable()
