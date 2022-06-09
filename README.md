@@ -17,13 +17,6 @@ php artisan vendor:publish --tag="eloquent-fsm-migrations"
 php artisan migrate
 ```
 
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-eloquent-fsm-config"
-```
-
-
 ## Usage
 
 ```php
