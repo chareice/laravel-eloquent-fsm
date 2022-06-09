@@ -34,7 +34,7 @@ class TestCase extends Orchestra
         ]);
 
 
-        $migration = include __DIR__ . "/migrations/test_model_migration.php";
-        $migration->up();
+        (include __DIR__ . "/migrations/test_model_migration.php")->up();
+        (include __DIR__ . "/../database/migrations/create_eloquent_fsm_table.php")->up();
     }
 }

@@ -15,4 +15,6 @@ interface StateMachineModelInterface
     public function currentState(): mixed;
 
     public function updateState($newState): void;
+
+    public function saveLog($from, Event $event, $context = null);
 }

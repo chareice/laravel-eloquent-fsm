@@ -31,6 +31,8 @@ class EloquentFSM implements StateMachineInterface
 
         DB::beginTransaction();
 
+        $beforeState = $this->currentState();
+
         try {
             if ($before = $eventToRun->getBefore()) {
                 call_user_func($before);
@@ -43,6 +45,8 @@ class EloquentFSM implements StateMachineInterface
                 call_user_func($after);
             }
 
+
+            $this->model->saveLog($beforeState, $eventToRun, $context);
             DB::commit();
 
             return true;

@@ -2,6 +2,9 @@
 
 namespace Chareice\LaravelEloquentFSM;
 
+use Chareice\LaravelEloquentFSM\Models\StateMachineLog;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+
 trait HasStateMachine
 {
     protected ?StateMachineInterface $stateMachine = null;
@@ -31,5 +34,20 @@ trait HasStateMachine
     {
         $this->setAttribute($this->stateColumn, $newState);
         $this->save();
+    }
+
+    public function stateMachineLogs(): MorphMany
+    {
+        return $this->morphMany(StateMachineLog::class, 'fsmable');
+    }
+
+    public function saveLog($from, Event $event, $context = null)
+    {
+        $this->stateMachineLogs()->save(new StateMachineLog([
+            'from' => $from,
+            'to' => $event->getTo(),
+            'event' => $event->getName(),
+            'meta' => $context
+        ]));
     }
 }

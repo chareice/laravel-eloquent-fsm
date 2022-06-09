@@ -34,3 +34,13 @@ it('should call event callback', function () {
 
     expect($this->model->counter)->toEqual(1);
 });
+
+
+it('should save log when event call', function () {
+    expect($this->model->stateMachineLogs()->count())->toEqual(0);
+    $this->stateMachine->runEvent('pay', ['hello' => 'world']);
+    expect($this->model->stateMachineLogs()->count())->toEqual(1);
+
+    $log = $this->model->stateMachineLogs()->first();
+    expect($log->meta)->toEqual(['hello' => 'world']);
+});
