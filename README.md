@@ -30,11 +30,11 @@ class Order extends Model implements StateMachineModelInterface {
     public int $counter = 0;
     
     // define event
-    public function events(): EventsCollection
+    public function events(): array
     {
-        return new EventsCollection([
+        return [
             Event::builder()
-                ->setName('pay')
+                ->setName(OrderStateEvent::PAY)
                 ->setFrom(OrderState::PENDING)
                 ->setTo(OrderState::PAID)
                 ->setAfter(function () {
@@ -43,18 +43,18 @@ class Order extends Model implements StateMachineModelInterface {
                 ->build(),
 
             Event::builder()
-                ->setName('ship')
+                ->setName(OrderStateEvent::SHIP)
                 ->setFrom(OrderState::PAID)
                 ->setTo(OrderState::SHIPPED)
                 ->build(),
-        ]);
+        ];
     }   
 }
 
 $order = Order::first();
 
 // run event
-$order->getStateMachine()->runEvent('pay');
+$order->getStateMachine()->runEvent(OrderStateEvent::PAY);
 
 
 // check new state
