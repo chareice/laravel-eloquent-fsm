@@ -13,15 +13,15 @@ interface StateMachineInterface
     public function currentState();
 
     /**
-     * @param string $eventName
+     * @param mixed $eventName
      * @param $context
      * @return bool
      */
-    public function runEvent(string $eventName, $context = null): bool;
+    public function runEvent(mixed $eventName, $context = null): bool;
 
     /**
-     * @param string $eventName
+     * @param mixed $eventName
      * @return bool
      */
-    public function canRun(string $eventName): Event | bool;
+    public function canRun(mixed $eventName): Event | bool;
 }

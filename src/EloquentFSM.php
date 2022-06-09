@@ -21,7 +21,7 @@ class EloquentFSM implements StateMachineInterface
     /**
      * @throws \Exception
      */
-    public function runEvent(string $eventName, $context = null): bool
+    public function runEvent(mixed $eventName, $context = null): bool
     {
         $eventToRun = $this->canRun($eventName);
 
@@ -57,7 +57,7 @@ class EloquentFSM implements StateMachineInterface
         }
     }
 
-    public function canRun(string $eventName): Event | bool
+    public function canRun(mixed $eventName): Event | bool
     {
         /** @var Event $event */
         if ($event = $this->events->getEvent($eventName)) {
