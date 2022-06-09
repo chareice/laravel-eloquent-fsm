@@ -3,7 +3,6 @@
 namespace Chareice\LaravelEloquentFSM\Tests;
 
 use Chareice\LaravelEloquentFSM\Event;
-use Chareice\LaravelEloquentFSM\EventsCollection;
 use Chareice\LaravelEloquentFSM\HasStateMachine;
 use Chareice\LaravelEloquentFSM\StateMachineModelInterface;
 use Illuminate\Database\Eloquent\Model;
