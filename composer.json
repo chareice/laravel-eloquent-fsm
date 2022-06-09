@@ -61,10 +61,7 @@
         "laravel": {
             "providers": [
                 "Chareice\\LaravelEloquentFSM\\LaravelEloquentFSMServiceProvider"
-            ],
-            "aliases": {
-                "LaravelEloquentFSM": "Chareice\\LaravelEloquentFSM\\Facades\\LaravelEloquentFSM"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
