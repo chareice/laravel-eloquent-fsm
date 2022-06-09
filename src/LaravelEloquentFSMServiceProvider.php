@@ -19,7 +19,7 @@ class LaravelEloquentFSMServiceProvider extends PackageServiceProvider
             ->name('laravel-eloquent-fsm')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel-eloquent-fsm_table')
+            ->hasMigration('create_eloquent_fsm_table')
             ->hasCommand(LaravelEloquentFSMCommand::class);
     }
 }
