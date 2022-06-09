@@ -10,7 +10,7 @@ class EventBuilder
     private $before;
     private $after;
 
-    public function build() : Event
+    public function build(): Event
     {
         return new Event($this);
     }
@@ -29,6 +29,7 @@ class EventBuilder
     public function setName($name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -37,7 +38,7 @@ class EventBuilder
      */
     public function getFrom()
     {
-        return !is_array($this->from) ? [$this->from] : $this->from;
+        return ! is_array($this->from) ? [$this->from] : $this->from;
     }
 
     /**
@@ -46,6 +47,7 @@ class EventBuilder
     public function setFrom($from): self
     {
         $this->from = $from;
+
         return $this;
     }
 
@@ -63,6 +65,7 @@ class EventBuilder
     public function setTo($to): self
     {
         $this->to = $to;
+
         return $this;
     }
 
@@ -80,6 +83,7 @@ class EventBuilder
     public function setBefore($before): self
     {
         $this->before = $before;
+
         return $this;
     }
 
@@ -97,7 +101,7 @@ class EventBuilder
     public function setAfter($after): self
     {
         $this->after = $after;
+
         return $this;
     }
-
 }

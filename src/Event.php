@@ -29,7 +29,8 @@ class Event
         return $this->name;
     }
 
-    public function getFrom() {
+    public function getFrom()
+    {
         return $this->from;
     }
 
@@ -48,5 +49,3 @@ class Event
         return $this->after;
     }
 }
-
-

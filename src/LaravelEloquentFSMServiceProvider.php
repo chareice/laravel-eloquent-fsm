@@ -2,9 +2,9 @@
 
 namespace Chareice\LaravelEloquentFSM;
 
+use Chareice\LaravelEloquentFSM\Commands\LaravelEloquentFSMCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Chareice\LaravelEloquentFSM\Commands\LaravelEloquentFSMCommand;
 
 class LaravelEloquentFSMServiceProvider extends PackageServiceProvider
 {

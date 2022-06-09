@@ -5,8 +5,8 @@ namespace Chareice\LaravelEloquentFSM;
 /**
  * @template T
  */
-interface StateMachineInterface {
-
+interface StateMachineInterface
+{
     /**
      * @return T
      */

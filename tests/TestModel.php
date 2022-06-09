@@ -2,17 +2,14 @@
 
 namespace Chareice\LaravelEloquentFSM\Tests;
 
-use Chareice\LaravelEloquentFSM\EloquentFSM;
 use Chareice\LaravelEloquentFSM\Event;
 use Chareice\LaravelEloquentFSM\EventsCollection;
 use Chareice\LaravelEloquentFSM\HasStateMachine;
-use Chareice\LaravelEloquentFSM\StateMachineInterface;
 use Chareice\LaravelEloquentFSM\StateMachineModelInterface;
 use Illuminate\Database\Eloquent\Model;
 
 class TestModel extends Model implements StateMachineModelInterface
 {
-
     use HasStateMachine;
 
     public int $counter = 0;
@@ -26,7 +23,7 @@ class TestModel extends Model implements StateMachineModelInterface
     public function events(): EventsCollection
     {
         return new EventsCollection([
-            Event::builder()->setName('pay')->setFrom(TestState::PENDING)->setTo(TestState::PAID)->setAfter(function() {
+            Event::builder()->setName('pay')->setFrom(TestState::PENDING)->setTo(TestState::PAID)->setAfter(function () {
                 $this->counter = 1;
             })->build(),
 
@@ -38,5 +35,4 @@ class TestModel extends Model implements StateMachineModelInterface
     {
         return TestState::PENDING;
     }
-
 }

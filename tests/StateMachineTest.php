@@ -3,15 +3,14 @@
 use Chareice\LaravelEloquentFSM\Tests\TestModel;
 use Chareice\LaravelEloquentFSM\Tests\TestState;
 
-
-beforeEach(function (){
+beforeEach(function () {
     TestModel::query()->create();
     $this->model = TestModel::query()->first();
     $this->stateMachine = $this->model->getStateMachine();
 });
 
 
-it('should register state machine', function ()  {
+it('should register state machine', function () {
     expect($this->stateMachine->currentState())->toEqual(TestModel::defaultState());
 });
 

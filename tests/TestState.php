@@ -2,8 +2,8 @@
 
 namespace Chareice\LaravelEloquentFSM\Tests;
 
-
-enum TestState: string {
+enum TestState: string
+{
     case PENDING = 'pending';
     case PAID = 'paid';
     case WAITING_FOR_SHIP = 'waiting-for-ship';

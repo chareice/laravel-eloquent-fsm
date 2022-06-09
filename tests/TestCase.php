@@ -2,9 +2,9 @@
 
 namespace Chareice\LaravelEloquentFSM\Tests;
 
+use Chareice\LaravelEloquentFSM\LaravelEloquentFSMServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Chareice\LaravelEloquentFSM\LaravelEloquentFSMServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -15,7 +15,6 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Chareice\\LaravelEloquentFSM\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
-
     }
 
     protected function getPackageProviders($app)

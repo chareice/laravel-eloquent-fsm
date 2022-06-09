@@ -1,8 +1,9 @@
 <?php
+
 namespace Chareice\LaravelEloquentFSM;
 
-
-trait HasStateMachine {
+trait HasStateMachine
+{
     protected ?StateMachineInterface $stateMachine = null;
 
     protected $stateColumn = 'state';
@@ -31,5 +32,4 @@ trait HasStateMachine {
         $this->setAttribute($this->stateColumn, $newState);
         $this->save();
     }
-
 }

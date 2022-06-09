@@ -2,7 +2,6 @@
 
 namespace Chareice\LaravelEloquentFSM;
 
-
 use Illuminate\Support\Facades\DB;
 
 class EloquentFSM implements StateMachineInterface
@@ -26,7 +25,7 @@ class EloquentFSM implements StateMachineInterface
     {
         $eventToRun = $this->canRun($eventName);
 
-        if (!$eventToRun) {
+        if (! $eventToRun) {
             return false;
         }
 
@@ -49,9 +48,9 @@ class EloquentFSM implements StateMachineInterface
             return true;
         } catch (\Exception $exception) {
             DB::rollBack();
+
             throw $exception;
         }
-
     }
 
     public function canRun(string $eventName): Event | bool

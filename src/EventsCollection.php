@@ -25,5 +25,4 @@ class EventsCollection
     {
         return $this->eventsMap[$name] ?? null;
     }
-
 }

@@ -11,7 +11,7 @@ class LaravelEloquentFSM
      * @param T $to
      * @return void
      */
-    public static function createEvent(string $name, mixed $from, mixed $to) {
-
+    public static function createEvent(string $name, mixed $from, mixed $to)
+    {
     }
 }
