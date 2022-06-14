@@ -2,7 +2,9 @@
 
 namespace Chareice\LaravelEloquentFSM;
 
-interface MutexStateMachineModel
+interface MutexStateMachineModel extends StateMachineModelInterface
 {
+    public function refresh();
 
+    public function getId();
 }

@@ -8,7 +8,7 @@ use Chareice\LaravelEloquentFSM\MutexStateMachineModel;
 use Chareice\LaravelEloquentFSM\StateMachineModelInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class TestModel extends Model implements StateMachineModelInterface, MutexStateMachineModel
+class TestModel extends Model implements MutexStateMachineModel
 {
     use HasStateMachine;
 

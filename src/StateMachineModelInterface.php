@@ -21,5 +21,4 @@ interface StateMachineModelInterface
 
     public function saveLog($from, Event $event, $context = null);
 
-    public function getId();
 }
