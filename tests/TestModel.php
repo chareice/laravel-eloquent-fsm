@@ -4,10 +4,11 @@ namespace Chareice\LaravelEloquentFSM\Tests;
 
 use Chareice\LaravelEloquentFSM\Event;
 use Chareice\LaravelEloquentFSM\HasStateMachine;
+use Chareice\LaravelEloquentFSM\MutexStateMachineModel;
 use Chareice\LaravelEloquentFSM\StateMachineModelInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class TestModel extends Model implements StateMachineModelInterface
+class TestModel extends Model implements StateMachineModelInterface, MutexStateMachineModel
 {
     use HasStateMachine;
 

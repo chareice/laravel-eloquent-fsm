@@ -11,8 +11,17 @@ trait HasStateMachine
 
     protected $stateColumn = 'state';
 
+    public function getId()
+    {
+        return get_class($this) . $this->getAttribute($this->primaryKey);
+    }
+
     public function createStateMachine(): StateMachineInterface
     {
+        if ($this instanceof MutexStateMachineModel) {
+            return new MutexEloquentFSM($this);
+        }
+
         return new EloquentFSM($this);
     }
 
