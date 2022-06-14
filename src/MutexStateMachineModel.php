@@ -4,5 +4,4 @@ namespace Chareice\LaravelEloquentFSM;
 
 interface MutexStateMachineModel
 {
-
 }
