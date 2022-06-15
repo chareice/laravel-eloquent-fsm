@@ -35,14 +35,14 @@ class EloquentFSM implements StateMachineInterface
 
         try {
             if ($before = $eventToRun->getBefore()) {
-                call_user_func($before);
+                call_user_func($before, $this->model);
             }
 
             $newState = $eventToRun->getTo();
             $this->model->updateState($newState);
 
             if ($after = $eventToRun->getAfter()) {
-                call_user_func($after);
+                call_user_func($after, $this->model);
             }
 
 

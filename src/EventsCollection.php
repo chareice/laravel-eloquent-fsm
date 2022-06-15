@@ -15,6 +15,7 @@ class EventsCollection
     public function __construct(array $events)
     {
         $this->events = $events;
+
         /** @var Event $event */
         foreach ($this->events as $event) {
             $this->eventsMap[$event->getName()] = $event;
