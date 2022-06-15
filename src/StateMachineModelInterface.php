@@ -20,5 +20,4 @@ interface StateMachineModelInterface
     public function updateState($newState): void;
 
     public function saveLog($from, Event $event, $context = null);
-
 }
