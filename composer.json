@@ -1,6 +1,7 @@
 {
     "name": "chareice/laravel-eloquent-fsm",
     "description": "A finite state machine works with laravel eloquent model",
+    "version": "0.1.0",
     "keywords": [
         "chareice",
         "laravel",
