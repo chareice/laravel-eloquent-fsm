@@ -1,23 +1,22 @@
-English | [中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
-# A finite state machine works with laravel eloquent model
+# Laravel Eloquent 适用的有限状态机
 
-## Installation
+## 安装
 
-You can install the package via composer:
-
+通过 composer 命令进行安装：
 ```bash
 composer require chareice/laravel-eloquent-fsm
 ```
 
-You can publish and run the migrations with:
+发布 migration 文件到 Laravel 项目中
 
 ```bash
 php artisan vendor:publish --tag="eloquent-fsm-migrations"
 php artisan migrate
 ```
 
-## Usage
+## 使用
 
 ```php
 use \Chareice\LaravelEloquentFSM\HasStateMachine;
@@ -29,7 +28,7 @@ class Order extends Model implements StateMachineModelInterface {
     
     public int $counter = 0;
     
-    // define event
+    // 定义事件
     public function events(): array
     {
         return [
@@ -53,18 +52,18 @@ class Order extends Model implements StateMachineModelInterface {
 
 $order = Order::first();
 
-// run event
+// 运行事件
 $order->getStateMachine()->runEvent(OrderStateEvent::PAY);
 
 
-// check new state
-$order->getStateMachine()->getCurrentState(); // equals OrderState::PAID
+// 检查新状态
+$order->getStateMachine()->getCurrentState(); // 等于 OrderState::PAID
 
-// check event log
+// 检查状态迁移日志
 $order->stateMachineLogs()->first();
 ```
 
-## Testing
+## 测试
 
 ```bash
 composer test
